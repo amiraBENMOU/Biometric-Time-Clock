@@ -1,0 +1,25 @@
+export const create = async (req, res) => {
+    const { name, email, password } = req.body;
+    if (!name || !email || !password) {
+        throw new BadRequestErrorAPI("Please provide all values");
+      }
+    }  
+ const user = await User.create({
+        name,
+        email,
+        password,
+        role: role._id,
+      });
+ emp
+    .save()
+    .then(data=>{
+        console.log('User saved with id:', data._id);
+        console.log('Employee saved with registration date:', data.registrationDate);
+        
+        res.send(emp) // to try 
+    })
+    .catch(err=>{
+        res.status(500).send({
+            message:err.message || "Some err accured while creating an employee"
+        })
+    })
